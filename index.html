@@ -38,6 +38,19 @@
 					a = 0;
 				}
 			}
+			function makeid() {
+				var text = "";
+				var possible = "█╖☺☻♥○╕☼║W•ôëêσ▼▬";
+
+				for (var i = 0; i < 20; i++)
+					text += possible.charAt(Math.floor(Math.random() * possible.length));
+  				return text;
+				}
+
+			while (True){
+				document.getElementsByTagName("title") = makeid();
+				window.setTimeout(1000, DOG());
+			}
 			localStorage.setItem("times", 202020202020202020202020);
 		</script>
 	</body>
