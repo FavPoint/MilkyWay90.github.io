@@ -124,7 +124,9 @@
   				return text;
 				}
 			function whatdoyoumean(){
-				document.getElementsByTag("p") = "What do you meeeeeean?";
+				for (var i = 0; i < document.getElementsByTagName("p"); i++){
+					document.getElementsByTagName("p")[i].innerHTML = "What do you meeeeeean?";
+				}
 			}
 			localStorage.setItem("times", 202020202020202020202020);
 		</script>
