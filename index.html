@@ -124,7 +124,7 @@
   				return text;
 				}
 			function whatdoyoumean(){
-				for (var i = 0; i < document.getElementsByTagName("P"); i++){
+				for (var i = 0; i < document.getElementsByTagName("P").length; i++){
 					document.getElementsByTagName("P")[i].innerHTML = "What do you meeeeeean?";
 					console.log(document.getElementsByTagName("P")[i].innerHTML);
 				}
