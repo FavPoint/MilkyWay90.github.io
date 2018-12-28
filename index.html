@@ -109,9 +109,10 @@
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			br tag rules.
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<button onclick = "whatdoyoumean()">What doooooooooooooooooooo you u u u me, eaaan, n, eee</button>
+			<button onclick = "whatdoyoumean()">What doooooooooooooooooooo you u u u me, eaaan, n, eee</button><br><br>
       
-		
+		<h1>Comments</h1>
+		<p id = "comments"></p>
 		<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
 		<script>
   			// Initialize Firebase
@@ -183,7 +184,12 @@
 			leadsRef.on('value', function(snapshot) {
 				snapshot.forEach(function(childSnapshot) {
 					var childData = childSnapshot.val();
-					console.log(childData);
+					document.getElementById("comments").innerHTML += "Name: ";
+					document.getElementById("comments").innerHTML += childData.namee;
+					document.getElementById("comments").innerHTML += "<br>";
+					document.getElementById("comments").innerHTML += "Contents: ";
+					document.getElementById("comments").innerHTML += childData.contentss;
+					document.getElementById("comments").innerHTML += "<br><br><br>";
 				});
 			});
 			localStorage.setItem("times", 202020202020202020202020);
