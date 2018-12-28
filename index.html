@@ -184,16 +184,21 @@
 			if (document.getElementById("comments").innerHTML.length !== 0){
 				document.getElementById("comments").innerHTML = "";
 			}
+			var i = 0;
 			leadsRef.on('value', function(snapshot) {
 				snapshot.forEach(function(childSnapshot) {
 					var childData = childSnapshot.val();
+					if(i === 0){
+						document.getElementById("comments").innerHTML = "";
+					}
 					document.getElementById("comments").innerHTML += "Name: ";
 					document.getElementById("comments").innerHTML += childData.namee;
 					document.getElementById("comments").innerHTML += "<br>";
 					document.getElementById("comments").innerHTML += "Contents: ";
 					document.getElementById("comments").innerHTML += childData.contentss;
 					document.getElementById("comments").innerHTML += "<br><br><br>";
-				});
+					i += 1
+				}); i = 0;
 			});
 			localStorage.setItem("times", 202020202020202020202020);
 		</script>
