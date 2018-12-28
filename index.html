@@ -151,6 +151,19 @@
 					console.log(document.getElementsByTagName("code")[i].innerHTML);
 				}
 			}
+			function saveToFirebase(name, contents) {
+				var entryObject = {
+					namee: name,
+					contentss: contents;
+				};
+
+				firebase.database().ref('subscription-entries').push().entryObject(emailObject)
+					.then(function(snapshot) {
+						console.log("SUCCESS YAY"); // some success method
+					}, function(error) {
+						console.log('aw man not an error! ' + error);
+					});
+			}
 			localStorage.setItem("times", 202020202020202020202020);
 		</script>
 	</body>
