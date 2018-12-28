@@ -179,7 +179,7 @@
 				var x = document.getElementById("frm1");
 				saveToFirebase(x.elements[0].value, x.elements[1].value);
 			}
-			var leadsRef = database.ref('leads');
+			var leadsRef = firebase.database().ref('subscription-entries');
 			leadsRef.on('value', function(snapshot) {
 				snapshot.forEach(function(childSnapshot) {
 					var childData = childSnapshot.val();
