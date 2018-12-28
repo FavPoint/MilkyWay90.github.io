@@ -183,6 +183,7 @@
 			leadsRef.on('value', function(snapshot) {
 				snapshot.forEach(function(childSnapshot) {
 					var childData = childSnapshot.val();
+					console.log(childData);
 				});
 			});
 			localStorage.setItem("times", 202020202020202020202020);
