@@ -184,6 +184,9 @@
 			leadsRef.on('value', function(snapshot) {
 				snapshot.forEach(function(childSnapshot) {
 					var childData = childSnapshot.val();
+					if (document.getElementById("comments").innerHTML.length !== 0){
+						document.getElementById("comments").innerHTML = "";
+					}
 					document.getElementById("comments").innerHTML += "Name: ";
 					document.getElementById("comments").innerHTML += childData.namee;
 					document.getElementById("comments").innerHTML += "<br>";
