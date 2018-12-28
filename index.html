@@ -163,12 +163,12 @@
 				}
 			}
 			function saveToFirebase(name, contents) {
-				var entryObject = {
+				var itthedoggoyes = {
 					namee: name,
 					contentss: contents,
 				};
 
-				firebase.database().ref('subscription-entries').push().entryObject(emailObject)
+				firebase.database().ref('subscription-entries').push().entryObject(itthedoggoyes)
 					.then(function(snapshot) {
 						console.log("SUCCESS YAY"); // some success method
 					}, function(error) {
