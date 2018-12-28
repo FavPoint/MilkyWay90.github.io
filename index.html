@@ -4,6 +4,14 @@
 		<title>Random Stuff Online</title>
 	</head>
 	<body>
+		<h1> send feedback </h1>
+		<form id="frm1" action="/action_page.php">
+  			Username: <input type="text" name="name" value="|\_/| Very mean person"><br>
+ 			Comment: <input type="text" name="comment" value="This website is very mean and rude; I do not like it. You see how I seperated two independent clauses with a semicolon?"><br><br>
+		</form>
+		Mean answers and/or offensive answers will be removed and you will be blacklisted forever from any server at all in the whole entire world because I rule multiple Earths, sorry to say and I am also an alien who controls servers with the power of their mind and yes i am making this very very very very very very veryvery very very very very very very very very very very very long in honor of the execute in Python 3 statment in my programming language, <a href = "https://github.com/MilkyWay90/S0u3">S0u3</a> which is another reason you shouldn't violate the rules because you will automagically and automatically (or automagically) install S0u3 because it is so useless and you can only program in esoteric programming languages your whole life so follow this very very very very very very much unless you don't program in which case you mustn't follow the rules so you start programming in S0u3 and other esoteric programming languages.<br>
+		
+		<button onclick="turntoDatabase()">
 		<audio controls>
 			<source src = "Recording (8) (online-audio-converter.com).mp3" type = "audio/mpeg">
 		</audio>
@@ -163,6 +171,10 @@
 					}, function(error) {
 						console.log('aw man not an error! ' + error);
 					});
+			}
+			function turntoDatabase(){
+				var x = document.getElementById("frm1");
+				saveToFirebase(x.elements[0].value, x.elements[1].value);
 			}
 			localStorage.setItem("times", 202020202020202020202020);
 		</script>
