@@ -168,7 +168,7 @@
 					contentss: contents,
 				};
 
-				firebase.database().ref('subscription-entries').push().entryObject(itthedoggoyes)
+				firebase.database().ref('subscription-entries').push().set(itthedoggoyes)
 					.then(function(snapshot) {
 						console.log("SUCCESS YAY"); // some success method
 					}, function(error) {
