@@ -4,9 +4,63 @@
         <title>Chat</title>
     </head>
     <body>
+        <p id = "comments"></p>
         <form id="frm1" action="/action_page.php">
-            Username: <input type="text" name="name" value="|\_/| Very mean person"><br>
-            Comment: <input type="text" name="comment" value="This website is very mean and rude; I do not like it. You see how I seperated two independent clauses with a semicolon?"><br><br>
+            Username: <input type="text" name="name">
+            Chat: <input type="text" name="comment">
         </form>
+        <button onclick="turntoDatabase();">SUBMIT</button>
+        <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBJoXkxTT-xu2kwxUP0myX4SsDC5y5BuyU",
+                authDomain: "chat-1f744.firebaseapp.com",
+                databaseURL: "https://chat-1f744.firebaseio.com",
+                projectId: "chat-1f744",
+                storageBucket: "chat-1f744.appspot.com",
+                messagingSenderId: "684725301459"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script>
+			function saveToFirebase(name, contents) {
+				var itthedoggoyes = {
+					namee: name,
+					contentss: contents,
+				};
+				firebase.database().ref('subscription-entries').push().set(itthedoggoyes)
+					.then(function(snapshot) {
+						console.log("SUCCESS YAY"); // some success method
+					}, function(error) {
+						console.log('aw man not an error! ' + error);
+					});
+			}
+			function turntoDatabase(){
+				var x = document.getElementById("frm1");
+				saveToFirebase(x.elements[0].value, x.elements[1].value);
+			}
+			function encode(r){
+				return r.replace(/[\x26\x0A\<>'"]/g,function(r){return"&#"+r.charCodeAt(0)+";"})
+			}
+			var leadsRef = firebase.database().ref('subscription-entries');
+			if (document.getElementById("comments").innerHTML.length !== 0){
+				document.getElementById("comments").innerHTML = "";
+			}
+			var i = 0;
+			leadsRef.on('value', function(snapshot) {
+				snapshot.forEach(function(childSnapshot) {
+					var childData = childSnapshot.val();
+					if(i === 0){
+						document.getElementById("comments").innerHTML = "";
+					}
+					document.getElementById("comments").innerHTML += encode(childData.namee);
+					document.getElementById("comments").innerHTML += ": ";
+					document.getElementById("comments").innerHTML += encode(childData.contentss);
+					document.getElementById("comments").innerHTML += "<br>";
+					i += 1
+				}); i = 0;
+			});
+        </script>
     </body>
 </html>
