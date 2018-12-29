@@ -192,7 +192,7 @@
 						document.getElementById("comments").innerHTML = "";
 					}
 					document.getElementById("comments").innerHTML += "Name: ";
-					document.getElementById("comments").innerHTML += childData.namee;
+					document.getElementById("comments").innerHTML += childData.namee.replace("<","\u003c").replace(">","\u003e").replace('"',"\u0022").replace("'", "\u0027").replace("\\","\u005c").replace("&","\u0026");
 					document.getElementById("comments").innerHTML += "<br>";
 					document.getElementById("comments").innerHTML += "Contents: ";
 					document.getElementById("comments").innerHTML += childData.contentss;
