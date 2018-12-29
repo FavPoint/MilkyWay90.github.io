@@ -4,11 +4,11 @@
         <title>Chat</title>
     </head>
     <body>
-        <p id = "comments"></p>
 		<form id="enter_room">
 			New room/Enter existing room: <input type="text" name = "room">
-		</form>
+		</form><br><br>
 		<button onclick="room_change()">Go to Room</button>
+        <p id = "comments"></p>
         <form id="frm1">
             Username: <input type="text" name="name">
             Chat: <input type="text" name="comment">
@@ -50,6 +50,7 @@
 			}
 			function room_change(){
 				room=document.getElementbyId("enter_room")[0].value;
+				console.log(document.getElementbyId("enter_room")[0].value);
 			}
 			var leadsRef = firebase.database().ref(room);
 			if (document.getElementById("comments").innerHTML.length !== 0){
