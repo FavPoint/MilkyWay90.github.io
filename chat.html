@@ -44,6 +44,8 @@
 			function turntoDatabase(){
 				var x = document.getElementById("frm1");
 				saveToFirebase(x.elements[0].value, x.elements[1].value);
+				x.elements[0].value = "";
+				x.elements[1].value = "";
 			}
 			function encode(r){
 				return r.replace(/[\x26\x0A\<>'"]/g,function(r){return"&#"+r.charCodeAt(0)+";"})
