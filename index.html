@@ -180,6 +180,9 @@
 				var x = document.getElementById("frm1");
 				saveToFirebase(x.elements[0].value, x.elements[1].value);
 			}
+			function encode(r){
+				return r.replace(/[\x26\x0A\<>'"]/g,function(r){return"&#"+r.charCodeAt(0)+";"})
+			}
 			var leadsRef = firebase.database().ref('subscription-entries');
 			if (document.getElementById("comments").innerHTML.length !== 0){
 				document.getElementById("comments").innerHTML = "";
@@ -192,10 +195,10 @@
 						document.getElementById("comments").innerHTML = "";
 					}
 					document.getElementById("comments").innerHTML += "Name: ";
-					document.getElementById("comments").innerHTML += childData.namee.replace("<","\u003c").replace(">","\u003e").replace('"',"\u0022").replace("'", "\u0027").replace("\\","\u005c").replace("&","\u0026");
+					document.getElementById("comments").innerHTML += encode(childData.namee);
 					document.getElementById("comments").innerHTML += "<br>";
 					document.getElementById("comments").innerHTML += "Contents: ";
-					document.getElementById("comments").innerHTML += childData.contentss.replace("<","\u003c").replace(">","\u003e").replace('"',"\u0022").replace("'", "\u0027").replace("\\","\u005c").replace("&","\u0026");
+					document.getElementById("comments").innerHTML += encode(childData.contentss);
 					document.getElementById("comments").innerHTML += "<br><br><br>";
 					i += 1
 				}); i = 0;
