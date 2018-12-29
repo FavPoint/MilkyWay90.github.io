@@ -50,7 +50,7 @@
 			}
 			function room_change(){
 				room=document.getElementbyId("enter_room")[0].value;
-				console.log(document.getElementbyId("enter_room")[0].value);
+				console.log(document.getElementById("enter_room")[0].value);
 			}
 			var leadsRef = firebase.database().ref(room);
 			if (document.getElementById("comments").innerHTML.length !== 0){
