@@ -49,7 +49,7 @@
 				return r.replace(/[\x26\x0A\<>'"]/g,function(r){return"&#"+r.charCodeAt(0)+";"})
 			}
 			function room_change(){
-				room=document.getElementbyId("enter_room")[0].value;
+				room=document.getElementById("enter_room")[0].value;
 				console.log(document.getElementById("enter_room")[0].value);
 			}
 			var leadsRef = firebase.database().ref(room);
