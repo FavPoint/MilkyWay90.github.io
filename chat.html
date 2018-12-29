@@ -24,12 +24,13 @@
             firebase.initializeApp(config);
         </script>
         <script>
+			var room = "Public";
 			function saveToFirebase(name, contents) {
 				var itthedoggoyes = {
 					namee: name,
 					contentss: contents,
 				};
-				firebase.database().ref('subscription-entries').push().set(itthedoggoyes)
+				firebase.database().ref(room).push().set(itthedoggoyes)
 					.then(function(snapshot) {
 						console.log("SUCCESS YAY"); // some success method
 					}, function(error) {
@@ -43,7 +44,7 @@
 			function encode(r){
 				return r.replace(/[\x26\x0A\<>'"]/g,function(r){return"&#"+r.charCodeAt(0)+";"})
 			}
-			var leadsRef = firebase.database().ref('subscription-entries');
+			var leadsRef = firebase.database().ref(room);
 			if (document.getElementById("comments").innerHTML.length !== 0){
 				document.getElementById("comments").innerHTML = "";
 			}
