@@ -30,7 +30,23 @@
         <script>
 			var room = "Public";
 			function saveToFirebase(name, contents) {
+				var today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth()+1; //January is 0!
+				var yyyy = today.getFullYear();
+
+				if(dd<10) {
+					dd = '0'+dd
+				} 
+
+				if(mm<10) {
+					mm = '0'+mm
+				} 
+
+				today = mm + '/' + dd + '/' + yyyy + " " + today.getHours() + ":" + today.getMinutes();
+				
 				var itthedoggoyes = {
+					datee: today,
 					namee: name,
 					contentss: contents,
 				};
@@ -68,6 +84,8 @@
 						if(i === 0){
 							document.getElementById("comments").innerHTML = "";
 						}
+						document.getElementById("comments").innerHTML += encode(childData.datee);
+						document.getElementById("comments").innerHTML += "		";
 						document.getElementById("comments").innerHTML += encode(childData.namee);
 						document.getElementById("comments").innerHTML += ": ";
 						document.getElementById("comments").innerHTML += encode(childData.contentss);
