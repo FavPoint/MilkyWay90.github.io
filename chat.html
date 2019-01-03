@@ -75,24 +75,18 @@
 				document.getElementById("comments").innerHTML = "";
 			}
 			function update(){
-				var i = 0;
-				var leadsRef = firebase.database().ref(room);
-				leadsRef.on('value', function(snapshot) {
-					var old_room = room;
-					snapshot.forEach(function(childSnapshot) {
-						var childData = childSnapshot.val();
-						if(i === 0){
-							document.getElementById("comments").innerHTML = "";
-						}
-						document.getElementById("comments").innerHTML += encode(childData.datee);
-						document.getElementById("comments").innerHTML += "		";
-						document.getElementById("comments").innerHTML += encode(childData.namee);
-						document.getElementById("comments").innerHTML += ": ";
-						document.getElementById("comments").innerHTML += encode(childData.contentss);
-						document.getElementById("comments").innerHTML += "<br>";
-						i += 1
-					}); i = 0; return 0;
-				});
+					firebase.database().ref(room).on('value', function (snapshot) {
+						var comments = [];
+						snapshot.forEach(function (childSnapshot) {
+							var childData = childSnapshot.val();
+							var commentElm = document.createElement("div");
+							commentElm.setAttribute("class", "comment")
+							commentElm.innerText = encode(childData.datee) + "      " + encode(childData.namee) + ": " + encode(childData.contentss);
+							comments.push(commentElm)
+						});
+						document.getElementById("comments").append(comments)
+						return 0;
+					});
 			}
 			window.setInterval(update, 100);
         </script>
