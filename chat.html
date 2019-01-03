@@ -81,7 +81,7 @@
 							var childData = childSnapshot.val();
 							var commentElm = document.createElement("div");
 							commentElm.setAttribute("class", "comment")
-							commentElm.innerText = encode(childData.datee) + "      " + encode(childData.namee) + ": " + encode(childData.contentss);
+							commentElm.innerHTML = encode(childData.datee) + "      " + encode(childData.namee) + ": " + encode(childData.contentss);
 							comments.push(commentElm)
 						});
 						document.getElementById("comments").append(comments)
