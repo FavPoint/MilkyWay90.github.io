@@ -77,7 +77,7 @@
 			function update(){
 				firebase.database().ref(room).on('value', function (snapshot) {
 					var comments = [];
-					document.getElementById("comments") = [];
+					document.getElementById("comments").innerHTML = "";
 					snapshot.forEach(function (childSnapshot) {
 						var childData = childSnapshot.val();
 						var commentElm = document.createElement("div");
