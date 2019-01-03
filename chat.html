@@ -80,7 +80,8 @@
 					snapshot.forEach(function (childSnapshot) {
 						var childData = childSnapshot.val();
 						var commentElm = document.createElement("div");
-						commentElm = '"' + encode(childData.datee) + "      " + encode(childData.namee) + ": " + encode(childData.contentss) + '"' + "\n";
+						commentElm = encode(childData.datee) + "      " + encode(childData.namee) + ": " + encode(childData.contentss) + `
+`;
 						comments += commentElm;
 					});
 					document.getElementById("comments").innerHTML = comments;
