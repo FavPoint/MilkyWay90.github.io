@@ -80,11 +80,11 @@
 						snapshot.forEach(function (childSnapshot) {
 							var childData = childSnapshot.val();
 							var commentElm = document.createElement("p");
-							commentElm.setAttribute("class", "comment")
+							commentElm.setAttribute("class", "comment");
 							commentElm.innerHTML = encode(childData.datee) + "      " + encode(childData.namee) + ": " + encode(childData.contentss);
-							comments.push(commentElm)
+							comments.push(commentElm);
 						});
-						document.getElementById("comments").append(comments)
+						document.getElementById("comments").append(comments);
 						return 0;
 					});
 			}
