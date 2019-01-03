@@ -79,7 +79,7 @@
 						var comments = [];
 						snapshot.forEach(function (childSnapshot) {
 							var childData = childSnapshot.val();
-							var commentElm = document.createElement("div");
+							var commentElm = document.createElement("p");
 							commentElm.setAttribute("class", "comment")
 							commentElm.innerHTML = encode(childData.datee) + "      " + encode(childData.namee) + ": " + encode(childData.contentss);
 							comments.push(commentElm)
@@ -88,7 +88,7 @@
 						return 0;
 					});
 			}
-			window.setInterval(update, 100);
+			window.setInterval(update, 1000);
         </script>
     </body>
 </html>
