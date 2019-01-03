@@ -75,18 +75,18 @@
 				document.getElementById("comments").innerHTML = "";
 			}
 			function update(){
-					firebase.database().ref(room).on('value', function (snapshot) {
-						var comments = [];
-						snapshot.forEach(function (childSnapshot) {
-							var childData = childSnapshot.val();
-							var commentElm = document.createElement("p");
-							commentElm.setAttribute("class", "comment");
-							commentElm.innerHTML = encode(childData.datee) + "      " + encode(childData.namee) + ": " + encode(childData.contentss);
-							comments.push(commentElm);
-						});
-						document.getElementById("comments").append(comments);
-						return 0;
+				firebase.database().ref(room).on('value', function (snapshot) {
+					var comments = [];
+					snapshot.forEach(function (childSnapshot) {
+						var childData = childSnapshot.val();
+						var commentElm = document.createElement("div");
+						commentElm.setAttribute("class", "comment")
+						commentElm.innerText = encode(childData.datee) + "      " + encode(childData.namee) + ": " + encode(childData.contentss);
+						comments.push(commentElm)
 					});
+					document.getElementById("comments").append(...comments)
+					return 0;
+				});
 			}
 			window.setInterval(update, 1000);
         </script>
