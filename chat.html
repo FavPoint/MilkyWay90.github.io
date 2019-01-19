@@ -10,8 +10,8 @@
 		<button onclick="room_change()">Go to Room</button><br><br>
         <p id = "comments"></p>
         <form id="frm1">
-            Username: <input type="text" name="name">
-            Chat: <input type="text" name="comment">
+            Username: <input type="text" name="name" id = "input1">
+            Chat: <input type="text" name="comment" id = "input2">
         </form>
         <button onclick="turntoDatabase();">SUBMIT</button>
         <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
@@ -88,6 +88,25 @@
 				});
 			}
 			window.setInterval(update, 1000);
+			var input1 = document.getElementById("input1");
+			var input2 = document.getElementById("input2");
+			// Execute a function when the user releases a key on the keyboard
+			input1.addEventListener("keyup", function(event) {
+				// Cancel the default action, if needed
+				event.preventDefault();
+				// Number 13 is the "Enter" key on the keyboard
+				if (event.keyCode === 13) {
+					turntoDatabase();
+				}
+			});
+			input2.addEventListener("keyup", function(event) {
+				// Cancel the default action, if needed
+				event.preventDefault();
+				// Number 13 is the "Enter" key on the keyboard
+				if (event.keyCode === 13) {
+					turntoDatabase();
+				}
+			});
         </script>
     </body>
 </html>
